@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/logiclogue/world-cup-2018-simulation/issues"
   },
-  "homepage": "https://github.com/logiclogue/world-cup-2018-simulation#readme"
+  "homepage": "https://github.com/logiclogue/world-cup-2018-simulation#readme",
+  "dependencies": {
+    "football-score-sim": "git+https://github.com/logiclogue/football-score-sim.git"
+  }
 }
