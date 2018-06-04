@@ -1,0 +1,162 @@
+[
+    {
+        "name": "Russia",
+        "rating": 1679,
+        "group": "A"
+    },
+    {
+        "name": "Saudi Arabia",
+        "rating": 1592,
+        "group": "A"
+    },
+    {
+        "name": "Egypt",
+        "rating": 1650,
+        "group": "A"
+    },
+    {
+        "name": "Uruguay",
+        "rating": 1891,
+        "group": "A"
+    },
+    {
+        "name": "Portugal",
+        "rating": 1969,
+        "group": "B"
+    },
+    {
+        "name": "Spain",
+        "rating": 2042,
+        "group": "B"
+    },
+    {
+        "name": "Morocco",
+        "rating": 1712,
+        "group": "B"
+    },
+    {
+        "name": "Iran",
+        "rating": 1787,
+        "group": "B"
+    },
+    {
+        "name": "France",
+        "rating": 1995,
+        "group": "C"
+    },
+    {
+        "name": "Australia",
+        "rating": 1733,
+        "group": "C"
+    },
+    {
+        "name": "Peru",
+        "rating": 1916,
+        "group": "C"
+    },
+    {
+        "name": "Denmark",
+        "rating": 1845,
+        "group": "C"
+    },
+    {
+        "name": "Argentina",
+        "rating": 1986,
+        "group": "D"
+    },
+    {
+        "name": "Iceland",
+        "rating": 1770,
+        "group": "D"
+    },
+    {
+        "name": "Croatia",
+        "rating": 1848,
+        "group": "D"
+    },
+    {
+        "name": "Nigeria",
+        "rating": 1691,
+        "group": "D"
+    },
+    {
+        "name": "Brazil",
+        "rating": 2136,
+        "group": "E"
+    },
+    {
+        "name": "Switzerland",
+        "rating": 1886,
+        "group": "E"
+    },
+    {
+        "name": "Costa Rica",
+        "rating": 1755,
+        "group": "E"
+    },
+    {
+        "name": "Serbia",
+        "rating": 1770,
+        "group": "E"
+    },
+    {
+        "name": "Germany",
+        "rating": 2076,
+        "group": "F"
+    },
+    {
+        "name": "Mexico",
+        "rating": 1861,
+        "group": "F"
+    },
+    {
+        "name": "Sweden",
+        "rating": 1794,
+        "group": "F"
+    },
+    {
+        "name": "South Korea",
+        "rating": 1731,
+        "group": "F"
+    },
+    {
+        "name": "Belgium",
+        "rating": 1929,
+        "group": "G"
+    },
+    {
+        "name": "Panama",
+        "rating": 1667,
+        "group": "G"
+    },
+    {
+        "name": "Tunisia",
+        "rating": 1659,
+        "group": "G"
+    },
+    {
+        "name": "England",
+        "rating": 1943,
+        "group": "G"
+    },
+    {
+        "name": "Poland",
+        "rating": 1831,
+        "group": "H"
+    },
+    {
+        "name": "Senegal",
+        "rating": 1740,
+        "group": "H"
+    },
+    {
+        "name": "Colombia",
+        "rating": 1928,
+        "group": "H"
+    },
+    {
+        "name": "Japan",
+        "rating": 1670,
+        "group": "H"
+    }
+]
