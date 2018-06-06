@@ -1,10 +1,10 @@
 class Teams {
     constructor(teams) {
-        this.teams = teams;
+        this.value = teams;
     }
 
     getByGroupName(group) {
-        return this.teams.filter(team => team.group === group).toTeams();
+        return this.value.filter(team => team.group === group).toTeams();
     }
 }
 
