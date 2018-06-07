@@ -13,6 +13,14 @@ class Group {
             .flatten()
             .map((teams, i) => new Match(teams, this.seed.append(i)));
     }
+
+    table() {
+        matches().reduce(addToTable, [])
+    }
+}
+
+function addToTable(table, match) {
+
 }
 
 module.exports = Group;
