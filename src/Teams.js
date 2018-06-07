@@ -8,7 +8,8 @@ class Teams {
     }
 
     getGroupByName(name) {
-        const teams = this.value.filter(team => team.group === name);
+        const teams = this.value
+            .filter(team => team.group === name);
         const seed = this.seed.append(name);
 
         return new Group(teams, seed);
@@ -21,9 +22,5 @@ class Teams {
             .map(this.getGroupByName.bind(this));
     }
 }
-
-Array.prototype.toTeams = function () {
-    return new Teams(this);
-};
 
 module.exports = Teams;

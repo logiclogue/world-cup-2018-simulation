@@ -10,8 +10,9 @@ describe("Teams", () => {
 
     describe("#getGroupByName(group)", () => {
         context("group A given teams.json", () => {
+            const group = teams.getGroupByName("A");
+
             it("returns Russia, Saudi Arabia, Egypt, Uruguay", () => {
-                const group = teams.getGroupByName("A");
                 const names = group.teams.map(team => team.name);
 
                 expect(names).contains("Russia");
