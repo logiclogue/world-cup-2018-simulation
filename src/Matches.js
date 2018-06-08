@@ -7,9 +7,9 @@ class Matches {
 
     toExpandedMatches() {
         const homeTeams = this.value
-            .map(match => new ExpandedMatch(match.home, match));
+            .map(match => new ExpandedMatch(o => o.home, match));
         const awayTeams = this.value
-            .map(match => new ExpandedMatch(match.away, match));
+            .map(match => new ExpandedMatch(o => o.away, match));
 
         return homeTeams.concat(awayTeams);
     }
