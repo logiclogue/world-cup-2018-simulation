@@ -1,6 +1,6 @@
 const expect = require("chai").expect;
 const teamsJson = require("../src/teams.json");
-const Teams = require("../src/Teams");
+const WorldCup = require("../src/WorldCup");
 const Match = require("football-score-sim").Match;
 const Team = require("football-score-sim").Team;
 const Seed = require("football-score-sim").Seed;
@@ -8,7 +8,7 @@ const Seed = require("football-score-sim").Seed;
 describe("Group", () => {
     context("group A", () => {
         const seed = "testing".toSeed();
-        const group = new Teams(teamsJson, seed).getGroupByName("A");
+        const group = new WorldCup(teamsJson, seed).getGroupByName("A");
 
         describe("#matches()", () => {
             const result = group.matches();

@@ -1,7 +1,7 @@
 const arrayHelpers = require("../src/arrayHelpers");
 const Group = require("../src/Group");
 
-class Teams {
+class WorldCup {
     constructor(teams, seed) {
         this.value = teams;
         this.seed = seed;
@@ -23,4 +23,4 @@ class Teams {
     }
 }
 
-module.exports = Teams;
+module.exports = WorldCup;
