@@ -1,6 +1,7 @@
 const expect = require("chai").expect;
 const teamsJson = require("../src/teams.json");
 const WorldCup = require("../src/WorldCup");
+const Matches = require("../src/Matches");
 const Match = require("football-score-sim").Match;
 const Team = require("football-score-sim").Team;
 const Seed = require("football-score-sim").Seed;
@@ -14,11 +15,15 @@ describe("Group", () => {
             const result = group.matches();
 
             it("has length of 6", () => {
-                expect(result).to.have.lengthOf(6);
+                expect(result.value).to.have.lengthOf(6);
+            });
+
+            it("returns type Matches", () => {
+                expect(result).to.be.instanceOf(Matches);
             });
 
             context("first match", () => {
-                const match = result[0];
+                const match = result.value[0];
 
                 it("is a match", () => {
                     expect(match).to.be.instanceof(Match);
