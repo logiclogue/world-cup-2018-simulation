@@ -40,7 +40,6 @@ describe("Record", () => {
             const result = record.addExpandedMatch(expandedMatch);
 
             it("becomes 4 defeats", () => {
-                console.log(expandedMatch);
                 expect(record.losses).to.equal(4);
             });
         });
