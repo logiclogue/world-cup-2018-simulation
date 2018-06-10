@@ -16,5 +16,11 @@ describe("ExpandedMatch", () => {
                 expect(expandedMatch.score.value).to.deep.equal([0, 3]);
             })
         });
+
+        describe("#goalsFor", () => {
+            it("returns 0", () => {
+                expect(expandedMatch.goalsFor).to.equal(expandedMatch.score.home);
+            });
+        });
     });
 });

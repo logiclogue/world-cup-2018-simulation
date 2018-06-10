@@ -13,7 +13,7 @@ class ExpandedMatch {
     }
 
     get goalsFor() {
-    
+        return this.playerLambda(this.score);
     }
 }
 
