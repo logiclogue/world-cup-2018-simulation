@@ -15,6 +15,15 @@ class ExpandedMatch {
     get goalsFor() {
         return this.playerLambda(this.score);
     }
+
+    get goalsAgainst() {
+        const lambda = this.playerLambda({
+            home: xs => xs.away,
+            away: xs => xs.home
+        });
+
+        return lambda(this.score);
+    }
 }
 
 module.exports = ExpandedMatch;

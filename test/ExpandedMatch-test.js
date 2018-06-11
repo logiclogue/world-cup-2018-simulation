@@ -19,7 +19,17 @@ describe("ExpandedMatch", () => {
 
         describe("#goalsFor", () => {
             it("returns 0", () => {
-                expect(expandedMatch.goalsFor).to.equal(expandedMatch.score.home);
+                const goals = expandedMatch.score.home;
+
+                expect(expandedMatch.goalsFor).to.equal(goals);
+            });
+        });
+
+        describe("#goalsAgainst", () => {
+            it("returns 3", () => {
+                const goals = expandedMatch.score.away;
+
+                expect(expandedMatch.goalsAgainst).to.equal(goals);
             });
         });
     });
