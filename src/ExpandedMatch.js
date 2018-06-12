@@ -24,6 +24,10 @@ class ExpandedMatch {
 
         return lambda(this.score);
     }
+
+    get goalDifference() {
+        return this.goalsFor - this.goalsAgainst;
+    }
 }
 
 module.exports = ExpandedMatch;

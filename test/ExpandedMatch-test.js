@@ -32,5 +32,15 @@ describe("ExpandedMatch", () => {
                 expect(expandedMatch.goalsAgainst).to.equal(goals);
             });
         });
+
+        describe("#goalDifference", () => {
+            it("returns -3", () => {
+                const goalsFor = expandedMatch.goalsFor;
+                const goalsAgainst = expandedMatch.goalsAgainst;
+                const diff = goalsFor - goalsAgainst;
+
+                expect(expandedMatch.goalDifference).to.equal(diff);
+            });
+        });
     });
 });
