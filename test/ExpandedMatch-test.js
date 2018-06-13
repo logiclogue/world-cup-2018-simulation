@@ -44,7 +44,7 @@ describe("ExpandedMatch", () => {
         });
     });
 
-    context("first match russia", () => {
+    context("the team loses", () => {
         const expandedMatch = stubs.expandedMatch;
 
         describe("#isWin", () => {
@@ -52,9 +52,15 @@ describe("ExpandedMatch", () => {
                 expect(expandedMatch.isWin).to.be.false;
             });
         });
+
+        describe("#isLoss", () => {
+            it("returns true", () => {
+                expect(expandedMatch.isLoss).to.be.true;
+            });
+        });
     });
 
-    context("second match first team", () => {
+    context("the team wins", () => {
         const expandedMatch = stubs.expandedMatches[1];
 
         describe("#isWin", () => {
@@ -62,5 +68,11 @@ describe("ExpandedMatch", () => {
                 expect(expandedMatch.isWin).to.be.true;
             });
         })
+
+        describe("#isLoss", () => {
+            it("returns false", () => {
+                expect(expandedMatch.isLoss).to.be.false;
+            });
+        });
     });
 });

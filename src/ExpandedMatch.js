@@ -29,6 +29,12 @@ class ExpandedMatch {
     get isWin() {
         return this.match.winner === this.playerLambda(this.match);
     }
+
+    get isLoss() {
+        const lambda = reverseLambda(this.playerLambda);
+
+        return this.match.winner === lambda(this.match);
+    }
 }
 
 function reverseLambda(lambda) {
