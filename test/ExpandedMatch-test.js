@@ -58,6 +58,12 @@ describe("ExpandedMatch", () => {
                 expect(expandedMatch.isLoss).to.be.true;
             });
         });
+
+        describe("#isDraw", () => {
+            it("returns false", () => {
+                expect(expandedMatch.isDraw).to.be.false;
+            });
+        });
     });
 
     context("the team wins", () => {
@@ -72,6 +78,34 @@ describe("ExpandedMatch", () => {
         describe("#isLoss", () => {
             it("returns false", () => {
                 expect(expandedMatch.isLoss).to.be.false;
+            });
+        });
+
+        describe("#isDraw", () => {
+            it("returns false", () => {
+                expect(expandedMatch.isDraw).to.be.false;
+            });
+        });
+    });
+
+    context("the team draws", () => {
+        const expandedMatch = stubs.expandedMatches[3];
+
+        describe("#isWin", () => {
+            it("returns false", () => {
+                expect(expandedMatch.isWin).to.be.false;
+            });
+        })
+
+        describe("#isLoss", () => {
+            it("returns false", () => {
+                expect(expandedMatch.isLoss).to.be.false;
+            });
+        });
+
+        describe("#isDraw", () => {
+            it("returns true", () => {
+                expect(expandedMatch.isDraw).to.be.true;
             });
         });
     });

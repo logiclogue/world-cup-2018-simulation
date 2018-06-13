@@ -35,6 +35,10 @@ class ExpandedMatch {
 
         return this.match.winner === lambda(this.match);
     }
+
+    get isDraw() {
+        return this.match.isDraw;
+    }
 }
 
 function reverseLambda(lambda) {
