@@ -17,10 +17,7 @@ class ExpandedMatch {
     }
 
     get goalsAgainst() {
-        const lambda = this.playerLambda({
-            home: xs => xs.away,
-            away: xs => xs.home
-        });
+        const lambda = reverseLambda(this.playerLambda);
 
         return lambda(this.score);
     }
@@ -28,6 +25,17 @@ class ExpandedMatch {
     get goalDifference() {
         return this.goalsFor - this.goalsAgainst;
     }
+
+    get isWin() {
+        return this.match.winner === this.playerLambda(this.match);
+    }
+}
+
+function reverseLambda(lambda) {
+    return lambda({
+        home: xs => xs.away,
+        away: xs => xs.home
+    });
 }
 
 module.exports = ExpandedMatch;

@@ -2,7 +2,7 @@ const expect = require("chai").expect;
 const stubs = require("./stubs");
 
 describe("ExpandedMatch", () => {
-    context("given first match of group A", () => {
+    context("given Russia first match of group A", () => {
         const expandedMatch = stubs.expandedMatch;
 
         describe("#player", () => {
@@ -42,5 +42,25 @@ describe("ExpandedMatch", () => {
                 expect(expandedMatch.goalDifference).to.equal(diff);
             });
         });
+    });
+
+    context("first match russia", () => {
+        const expandedMatch = stubs.expandedMatch;
+
+        describe("#isWin", () => {
+            it("returns false", () => {
+                expect(expandedMatch.isWin).to.be.false;
+            });
+        });
+    });
+
+    context("second match first team", () => {
+        const expandedMatch = stubs.expandedMatches[1];
+
+        describe("#isWin", () => {
+            it("returns true", () => {
+                expect(expandedMatch.isWin).to.be.true;
+            });
+        })
     });
 });
