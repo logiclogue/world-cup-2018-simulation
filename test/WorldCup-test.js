@@ -50,4 +50,8 @@ describe("WorldCup", () => {
             });
         });
     });
+
+    describe("#knockoutRound()", () => {
+        console.log(teams.knockoutRound());
+    });
 });
