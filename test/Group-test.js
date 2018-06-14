@@ -43,5 +43,25 @@ describe("Group", () => {
                 });
             });
         });
+
+        describe("#table()", () => {
+            const table = group.table();
+
+            it("has 4 rows", () => {
+                expect(table).to.have.lengthOf(4);
+            });
+        });
+
+        describe("#winner", () => {
+            it("is uruguay", () => {
+                expect(group.winner.name).to.equal("Uruguay");
+            });
+        });
+
+        describe("#runnerUp", () => {
+            it("is saudi", () => {
+                expect(group.runnerUp.name).to.equal("Saudi Arabia");
+            });
+        });
     });
 });
