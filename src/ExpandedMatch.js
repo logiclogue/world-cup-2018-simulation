@@ -27,7 +27,7 @@ class ExpandedMatch {
     }
 
     get isWin() {
-        return this.match.winner === this.playerLambda(this.match);
+        return this.match.winner === this.player;
     }
 
     get isLoss() {

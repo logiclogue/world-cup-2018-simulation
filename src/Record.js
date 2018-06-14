@@ -21,7 +21,26 @@ class Record {
     }
 
     addExpandedMatch(expandedMatch) {
-        return this;
+        let wins = this.wins;
+        let draws = this.draws;
+        let losses = this.losses;
+
+        if (expandedMatch.isWin) {
+            wins += 1;
+        } else if (expandedMatch.isDraw) {
+            draws += 1;
+        } else if (expandedMatch.isLoss) {
+            losses += 1;
+        }
+
+        return new Record(
+            expandedMatch.player,
+            wins,
+            draws,
+            losses,
+            this.goalsFor + expandedMatch.goalsFor,
+            this.goalsAgainst + expandedMatch.goalsAgainst
+        );
     }
 }
 

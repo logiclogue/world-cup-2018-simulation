@@ -40,7 +40,15 @@ describe("Record", () => {
             const result = record.addExpandedMatch(expandedMatch);
 
             it("becomes 4 defeats", () => {
-                expect(record.losses).to.equal(4);
+                expect(result.losses).to.equal(4);
+            });
+
+            it("becomes 10 goals for", () => {
+                expect(result.goalsFor).to.equal(10);
+            });
+
+            it("becomes 13 goals for", () => {
+                expect(result.goalsAgainst).to.equal(13);
             });
         });
     });
