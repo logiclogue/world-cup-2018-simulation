@@ -1,5 +1,6 @@
-const arrayHelpers = require("../src/arrayHelpers");
-const Group = require("../src/Group");
+const arrayHelpers = require("./arrayHelpers");
+const Group = require("./Group");
+const Match = require("football-score-sim").Match;
 
 class WorldCup {
     constructor(teams, seed) {
@@ -20,6 +21,9 @@ class WorldCup {
             .map(team => team.group)
             .unique()
             .map(this.getGroupByName.bind(this));
+    }
+
+    getRoundOf16() {
     }
 }
 

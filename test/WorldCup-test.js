@@ -6,11 +6,11 @@ const Seed = require("football-score-sim").Seed;
 
 describe("WorldCup", () => {
     const seed = "testing".toSeed();
-    const teams = new WorldCup(teamsJson, seed);
+    const worldCup = new WorldCup(teamsJson, seed);
 
     describe("#getGroupByName(group)", () => {
         context("group A given teams.json", () => {
-            const group = teams.getGroupByName("A");
+            const group = worldCup.getGroupByName("A");
 
             it("returns Russia, Saudi Arabia, Egypt, Uruguay", () => {
                 const names = group.teams.map(team => team.name);
@@ -25,7 +25,7 @@ describe("WorldCup", () => {
 
     describe("#getGroups()", () => {
         context("given teams.json", () => {
-            const result = teams.getGroups();
+            const result = worldCup.getGroups();
 
             it("returns 8 groups", () => {
                 expect(result).to.be.lengthOf(8);
@@ -51,7 +51,11 @@ describe("WorldCup", () => {
         });
     });
 
-    describe("#knockoutRound()", () => {
-        console.log(teams.knockoutRound());
+    describe("#getRoundOf16()", () => {
+        it("has 8 matches", () => {
+            const roundOf16 = worldCup.getRoundOf16();
+
+            expect(roundOf16).to.have.lengthOf(8);
+        });
     });
 });
