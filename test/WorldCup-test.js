@@ -52,10 +52,22 @@ describe("WorldCup", () => {
     });
 
     describe("#getRoundOf16()", () => {
-        it("has 8 matches", () => {
-            const roundOf16 = worldCup.getRoundOf16();
+        const result = worldCup.getRoundOf16();
 
-            expect(roundOf16).to.have.lengthOf(8);
+        context("first match", () => {
+            const match = result[0];
+
+            it("'home' team is winner of group C", () => {
+                const groupC = worldCup.getGroupByName("C");
+
+                expect(match.home).to.equal(groupC.winner);
+            });
+
+            it("'away' team is runner up of group D", () => {
+                const groupD = worldCup.getGroupByName("D");
+
+                expect(match.away).to.equal(groupD.winner);
+            });
         });
     });
 });

@@ -24,6 +24,9 @@ class WorldCup {
     }
 
     getRoundOf16() {
+        return [
+            new Match([this.getGroupByName("C").winner, this.getGroupByName("D").winner], "testing".toSeed())
+        ];
     }
 }
 
