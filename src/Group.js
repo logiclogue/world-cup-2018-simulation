@@ -28,7 +28,7 @@ class Group {
                 return points;
             }
 
-            const goalDiff = b.goalDifference - a.goalDifference;
+            const goalDifference = b.goalDifference - a.goalDifference;
 
             if (goalDifference !== 0) {
                 return goalDifference;

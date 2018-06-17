@@ -66,7 +66,11 @@ describe("WorldCup", () => {
             it("'away' team is runner up of group D", () => {
                 const groupD = worldCup.getGroupByName("D");
 
-                expect(match.away).to.equal(groupD.winner);
+                expect(match.away).to.equal(groupD.runnerUp);
+            });
+
+            it("has a seed of 'Round of 16'", () => {
+                expect(match.seed.value).to.equal("Round of 16");
             });
         });
     });
