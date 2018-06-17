@@ -42,6 +42,15 @@ class WorldCup {
             }))
             .map(teams => new Match(teams, seed));
     }
+
+    getQuarterFinals() {
+        const roundOf16 = this.getRoundOf16();
+        const seed = "Quarter Finals".toSeed();
+
+        return [[0, 1], [2, 3], [4, 5], [6, 7]]
+            .map(xs => xs.map(x => roundOf16[x].winner))
+            .map(teams => new Match(teams, seed));
+    }
 }
 
 module.exports = WorldCup;
