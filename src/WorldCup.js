@@ -1,6 +1,8 @@
 const arrayHelpers = require("./arrayHelpers");
 const Group = require("./Group");
 const Match = require("football-score-sim").Match;
+const ExtraTimeMatch = require("football-score-sim").ExtraTimeMatch;
+const PenaltyShootoutMatch = require("football-score-sim").PenaltyShootoutMatch;
 const Seed = require("football-score-sim").Seed;
 const roundOf16 = require("./roundOf16.json");
 
@@ -40,7 +42,7 @@ class WorldCup {
 
                 return this.getGroupByName(groupName).runnerUp;
             }))
-            .map(teams => new Match(teams, seed));
+            .map(teams => createKnockoutMatch(teams, seed));
     }
 
     getQuarterFinals() {
@@ -49,8 +51,15 @@ class WorldCup {
 
         return [[0, 1], [2, 3], [4, 5], [6, 7]]
             .map(xs => xs.map(x => roundOf16[x].winner))
-            .map(teams => new Match(teams, seed));
+            .map(teams => createKnockoutMatch(teams, seed));
     }
+}
+
+function createKnockoutMatch(teams, seed) {
+    const match = new Match(teams, seed);
+    const extraTimeMatch = new ExtraTimeMatch(match);
+
+    return new PenaltyShootoutMatch(extraTimeMatch);
 }
 
 module.exports = WorldCup;
