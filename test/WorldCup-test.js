@@ -75,7 +75,7 @@ describe("WorldCup", () => {
         });
     });
 
-    describe("#getQuarterFinals", () => {
+    describe("#getQuarterFinals()", () => {
         const result = worldCup.getQuarterFinals();
         const roundOf16 = worldCup.getRoundOf16();
 
@@ -92,6 +92,27 @@ describe("WorldCup", () => {
 
             it("has a seed of 'Quarter Finals'", () => {
                 expect(match.seed.value).to.equal("Quarter Finals");
+            });
+        });
+    });
+
+    describe("#getSemiFinals()", () => {
+        const result = worldCup.getSemiFinals();
+        const quarterFinals = worldCup.getQuarterFinals();
+
+        context("first match", () => {
+            const match = result[0];
+
+            it("'home' team is the winner of the first match", () => {
+                expect(match.home).to.equal(quarterFinals[0].winner);
+            });
+
+            it("'away' team is the winner of the first match", () => {
+                expect(match.away).to.equal(quarterFinals[1].winner);
+            });
+
+            it("has a seed of 'Semi Finals'", () => {
+                expect(match.seed.value).to.equal("Semi Finals");
             });
         });
     });
