@@ -107,13 +107,30 @@ describe("WorldCup", () => {
                 expect(match.home).to.equal(quarterFinals[0].winner);
             });
 
-            it("'away' team is the winner of the first match", () => {
+            it("'away' team is the winner of the second match", () => {
                 expect(match.away).to.equal(quarterFinals[1].winner);
             });
 
             it("has a seed of 'Semi Finals'", () => {
                 expect(match.seed.value).to.equal("Semi Finals");
             });
+        });
+    });
+
+    describe("#getFinal()", () => {
+        const final = worldCup.getFinal();
+        const semiFinals = worldCup.getSemiFinals();
+
+        it("'home' team is the winner of the first match", () => {
+            expect(final.home).to.equal(semiFinals[0].winner);
+        });
+
+        it("'away' team is the winner of the second match", () => {
+            expect(final.away).to.equal(semiFinals[1].winner);
+        });
+
+        it("has a seed of 'Final'", () => {
+            expect(final.seed.value).to.equal("Final");
         });
     });
 });

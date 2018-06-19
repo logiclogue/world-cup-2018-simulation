@@ -62,6 +62,16 @@ class WorldCup {
             .map(xs => xs.map(x => quarterFinals[x].winner))
             .map(teams => createKnockoutMatch(teams, seed));
     }
+
+    getFinal() {
+        const semiFinals = this.getSemiFinals();
+        const seed = "Final".toSeed();
+
+        return createKnockoutMatch([
+            semiFinals[0].winner,
+            semiFinals[1].winner
+        ], seed);
+    }
 }
 
 function createKnockoutMatch(teams, seed) {
