@@ -133,4 +133,13 @@ describe("WorldCup", () => {
             expect(final.seed.value).to.equal("Final");
         });
     });
+    
+    describe("#getWinner()", () => {
+        const final = worldCup.getFinal();
+        const winner = worldCup.getWinner();
+
+        it("returns the winner of the final", () => {
+            expect(winner).to.equal(final.winner);
+        });
+    });
 });

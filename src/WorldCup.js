@@ -72,6 +72,10 @@ class WorldCup {
             semiFinals[1].winner
         ], seed);
     }
+
+    getWinner() {
+        return this.getFinal().winner;
+    }
 }
 
 function createKnockoutMatch(teams, seed) {
