@@ -21,6 +21,9 @@
     "football-score-sim": "git+https://github.com/logiclogue/football-score-sim.git",
     "knockout-tournament": "^1.0.1",
     "mocha": "^5.2.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "^1.1.4",
     "roundrobin": "^1.0.3"
   }
 }
