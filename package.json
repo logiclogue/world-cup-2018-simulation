@@ -4,7 +4,8 @@
   "description": "Simulation of the 2018 World Cup",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "react-scripts start"
   },
   "repository": {
     "type": "git",
