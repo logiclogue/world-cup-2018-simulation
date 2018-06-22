@@ -28,7 +28,7 @@ class WorldCup {
     }
 
     getRoundOf16() {
-        const seed = "Round of 16".toSeed();
+        const seed = this.seed.append("Round of 16");
 
         return roundOf16
             .map(s => s.split(" vs "))
@@ -47,7 +47,7 @@ class WorldCup {
 
     getQuarterFinals() {
         const roundOf16 = this.getRoundOf16();
-        const seed = "Quarter Finals".toSeed();
+        const seed = this.seed.append("Quarter Finals");
 
         return [[0, 1], [2, 3], [4, 5], [6, 7]]
             .map(xs => xs.map(x => roundOf16[x].winner))
@@ -56,7 +56,7 @@ class WorldCup {
 
     getSemiFinals() {
         const quarterFinals = this.getQuarterFinals();
-        const seed = "Semi Finals".toSeed();
+        const seed = this.seed.append("Semi Finals");
 
         return [[0, 1], [2, 3]]
             .map(xs => xs.map(x => quarterFinals[x].winner))
@@ -65,7 +65,7 @@ class WorldCup {
 
     getFinal() {
         const semiFinals = this.getSemiFinals();
-        const seed = "Final".toSeed();
+        const seed = this.seed.append("Final");
 
         return createKnockoutMatch([
             semiFinals[0].winner,

@@ -70,7 +70,7 @@ describe("WorldCup", () => {
             });
 
             it("has a seed of 'Round of 16'", () => {
-                expect(match.seed.value).to.equal("Round of 16");
+                expect(match.seed).to.deep.equal(seed.append("Round of 16"));
             });
         });
     });
@@ -91,7 +91,7 @@ describe("WorldCup", () => {
             });
 
             it("has a seed of 'Quarter Finals'", () => {
-                expect(match.seed.value).to.equal("Quarter Finals");
+                expect(match.seed).to.deep.equal(seed.append("Quarter Finals"));
             });
         });
     });
@@ -112,7 +112,7 @@ describe("WorldCup", () => {
             });
 
             it("has a seed of 'Semi Finals'", () => {
-                expect(match.seed.value).to.equal("Semi Finals");
+                expect(match.seed).to.deep.equal(seed.append("Semi Finals"));
             });
         });
     });
@@ -130,7 +130,7 @@ describe("WorldCup", () => {
         });
 
         it("has a seed of 'Final'", () => {
-            expect(final.seed.value).to.equal("Final");
+            expect(final.seed).to.deep.equal(seed.append("Final"));
         });
     });
     
