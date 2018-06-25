@@ -10,7 +10,15 @@ function WorldCup(props) {
 
     return (
         <div class="container">
-            <Group group={ worldCup.getGroupByName("A") } /><br />
+            <div class="col-sm-4">
+                <Group group={ worldCup.getGroupByName("A") } />
+            </div>
+            <div class="col-sm-4">
+                <Group group={ worldCup.getGroupByName("B") } />
+            </div>
+            <div class="col-sm-4">
+                <Group group={ worldCup.getGroupByName("C") } />
+            </div>
             <Matches name="Round of 16" matches={ worldCup.getRoundOf16() } /><br />
             <Matches name="Quarter Finals" matches={ worldCup.getQuarterFinals() } /><br />
             <Matches name="Semi Finals" matches={ worldCup.getSemiFinals() } /><br />
