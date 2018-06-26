@@ -9,22 +9,42 @@ function WorldCup(props) {
     const worldCup = new Sim(teams, seed.toSeed());
 
     return (
-        <div class="container">
-            <div class="col-sm-4">
-                <Group group={ worldCup.getGroupByName("A") } />
+        <div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <Group group={ worldCup.getGroupByName("A") } />
+                </div>
+                <div class="col-sm-3">
+                    <Group group={ worldCup.getGroupByName("B") } />
+                </div>
+                <div class="col-sm-3">
+                    <Group group={ worldCup.getGroupByName("C") } />
+                </div>
+                <div class="col-sm-3">
+                    <Group group={ worldCup.getGroupByName("D") } />
+                </div>
             </div>
-            <div class="col-sm-4">
-                <Group group={ worldCup.getGroupByName("B") } />
+            
+            <div class="row">
+                <div class="col-sm-3">
+                    <Group group={ worldCup.getGroupByName("E") } />
+                </div>
+                <div class="col-sm-3">
+                    <Group group={ worldCup.getGroupByName("F") } />
+                </div>
+                <div class="col-sm-3">
+                    <Group group={ worldCup.getGroupByName("G") } />
+                </div>
+                <div class="col-sm-3">
+                    <Group group={ worldCup.getGroupByName("H") } />
+                </div>
             </div>
-            <div class="col-sm-4">
-                <Group group={ worldCup.getGroupByName("C") } />
-            </div>
+
             <Matches name="Round of 16" matches={ worldCup.getRoundOf16() } /><br />
             <Matches name="Quarter Finals" matches={ worldCup.getQuarterFinals() } /><br />
             <Matches name="Semi Finals" matches={ worldCup.getSemiFinals() } /><br />
             <h3>Final</h3>
             <Match match={ worldCup.getFinal() } />
-            <p>{ worldCup.getWinner().name }</p>
         </div>
     );
 }
