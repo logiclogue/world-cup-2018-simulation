@@ -11,33 +11,27 @@ function WorldCup(props) {
     return (
         <div>
             <div class="row">
-                <div class="col-sm-3">
-                    <Group group={ worldCup.getGroupByName("A") } />
-                </div>
-                <div class="col-sm-3">
-                    <Group group={ worldCup.getGroupByName("B") } />
-                </div>
-                <div class="col-sm-3">
-                    <Group group={ worldCup.getGroupByName("C") } />
-                </div>
-                <div class="col-sm-3">
-                    <Group group={ worldCup.getGroupByName("D") } />
-                </div>
+                {
+                    ["A", "B", "C", "D"]
+                        .map(name => worldCup.getGroupByName(name))
+                        .map(group =>
+                            <div class="col-sm-3">
+                                <Group group={group} />
+                            </div>
+                        )
+                }
             </div>
             
             <div class="row">
-                <div class="col-sm-3">
-                    <Group group={ worldCup.getGroupByName("E") } />
-                </div>
-                <div class="col-sm-3">
-                    <Group group={ worldCup.getGroupByName("F") } />
-                </div>
-                <div class="col-sm-3">
-                    <Group group={ worldCup.getGroupByName("G") } />
-                </div>
-                <div class="col-sm-3">
-                    <Group group={ worldCup.getGroupByName("H") } />
-                </div>
+                {
+                    ["E", "F", "G", "H"]
+                        .map(name => worldCup.getGroupByName(name))
+                        .map(group =>
+                            <div class="col-sm-3">
+                                <Group group={group} />
+                            </div>
+                        )
+                }
             </div>
 
             <Matches name="Round of 16" matches={ worldCup.getRoundOf16() } /><br />
