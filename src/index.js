@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Sim from "./WorldCup.js";
 import teamsJson from "./teams.json";
+import TeamEditor from "./TeamEditor";
 
 function WorldCup(props) {
     const teams = props.teams || teamsJson;
@@ -10,6 +11,8 @@ function WorldCup(props) {
 
     return (
         <div>
+            <TeamEditor teams={teamsJson} />
+
             <div class="row">
                 {
                     ["A", "B", "C", "D"]
