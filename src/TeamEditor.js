@@ -16,25 +16,33 @@ class TeamEditor extends React.Component {
     handleNameChange(e, id) {
         const newName = e.target.value;
 
-        this.setState(prevState => {
-            return {
-                teams: prevState.teams.map((team, i) => {
-                    if (i === id) {
-                        return {
-                            name: newName,
-                            rating: team.rating,
-                            group: team.group
-                        };
-                    }
+        this.setState(state => {
+            state.teams = state.teams.map((team, i) => {
+                if (i === id) {
+                    team.name = newName;
 
                     return team;
-                })
-            };
+                }
+
+                return team;
+            });
         });
     }
 
     handleRatingChange(e, id) {
-    
+        const newRating = e.target.value;
+
+        this.setState(state => {
+            state.teams = state.teams.map((team, i) => {
+                if (i === id) {
+                    team.rating = newRating;
+
+                    return team;
+                }
+
+                return team;
+            });
+        });
     }
 
     handleGroupChange(e, id) {
