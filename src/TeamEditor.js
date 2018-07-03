@@ -20,12 +20,12 @@ class TeamEditor extends React.Component {
             state.teams = state.teams.map((team, i) => {
                 if (i === id) {
                     team.name = newName;
-
-                    return team;
                 }
 
                 return team;
             });
+
+            return state;
         });
     }
 
@@ -36,29 +36,44 @@ class TeamEditor extends React.Component {
             state.teams = state.teams.map((team, i) => {
                 if (i === id) {
                     team.rating = newRating;
-
-                    return team;
                 }
 
                 return team;
             });
+
+            return state;
         });
     }
 
     handleGroupChange(e, id) {
-        
+        const newGroup = e.target.value;
+
+        this.setState(state => {
+            state.teams = state.teams.map((team, i) => {
+                if (i === id) {
+                    team.group = newGroup;
+                }
+
+                return team;
+            });
+
+            return state;
+        });
     }
 
     render() {
+        const teamRows = this.state.teams.map((team, i) =>
+            <TeamRow
+                key={i}
+                id={i}
+                team={team}
+                action={this} />
+        );
+
         return (
             <table>
                 <tbody>
-                    {this.state.teams.map((team, i) =>
-                        <TeamRow
-                            key={i}
-                            id={i}
-                            team={team}
-                            action={this} />)}
+                    {teamRows}
                 </tbody>
             </table>
         );
