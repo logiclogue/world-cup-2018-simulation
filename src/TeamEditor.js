@@ -8,6 +8,8 @@ class TeamEditor extends React.Component {
             teams: props.teams
         };
 
+        this.handleChange = this.props.handleChange;
+
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleRatingChange = this.handleRatingChange.bind(this);
         this.handleGroupChange = this.handleGroupChange.bind(this);
@@ -25,6 +27,8 @@ class TeamEditor extends React.Component {
                 return team;
             });
 
+            this.handleChange(state);
+
             return state;
         });
     }
@@ -41,6 +45,8 @@ class TeamEditor extends React.Component {
                 return team;
             });
 
+            this.handleChange(state);
+
             return state;
         });
     }
@@ -56,6 +62,8 @@ class TeamEditor extends React.Component {
 
                 return team;
             });
+
+            this.handleChange(state);
 
             return state;
         });
