@@ -13,6 +13,7 @@ class TeamEditor extends React.Component {
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleRatingChange = this.handleRatingChange.bind(this);
         this.handleGroupChange = this.handleGroupChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleNameChange(e, id) {
@@ -26,8 +27,6 @@ class TeamEditor extends React.Component {
 
                 return team;
             });
-
-            this.handleChange(state);
 
             return state;
         });
@@ -45,8 +44,6 @@ class TeamEditor extends React.Component {
                 return team;
             });
 
-            this.handleChange(state);
-
             return state;
         });
     }
@@ -63,10 +60,14 @@ class TeamEditor extends React.Component {
                 return team;
             });
 
-            this.handleChange(state);
-
             return state;
         });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+
+        this.handleChange(this.state);
     }
 
     render() {
@@ -79,11 +80,15 @@ class TeamEditor extends React.Component {
         );
 
         return (
-            <table>
-                <tbody>
-                    {teamRows}
-                </tbody>
-            </table>
+            <form onSubmit={this.handleSubmit}>
+                <table>
+                    <tbody>
+                        {teamRows}
+                    </tbody>
+                </table>
+
+                <input type="submit" value="Simulate" />
+            </form>
         );
     }
 }

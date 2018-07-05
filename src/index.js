@@ -4,46 +4,70 @@ import Sim from "./WorldCup.js";
 import teamsJson from "./teams.json";
 import TeamEditor from "./TeamEditor";
 
-function WorldCup(props) {
-    const teams = props.teams || teamsJson;
-    const seed = props.seed || "testing";
-    const worldCup = new Sim(teams, seed.toSeed());
+class WorldCupDisplay extends React.Component {
+    constructor(props) {
+        super(props);
 
-    return (
-        <div>
-            <TeamEditor teams={teamsJson} />
+        const teams = props.teams || teamsJson;
+        const seed = props.seed || "testing";
 
-            <div class="row">
-                {
-                    ["A", "B", "C", "D"]
-                        .map(name => worldCup.getGroupByName(name))
-                        .map(group =>
-                            <div class="col-sm-3">
-                                <Group group={group} />
-                            </div>
-                        )
-                }
+        this.worldCup = new Sim(teams, seed.toSeed());
+
+        this.state = { teams, seed };
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(state) {
+        console.log("HERE");
+
+        this.setState(prevState => {
+            prevState.teams = state.teams;
+
+            return prevState;
+        });
+    }
+
+    render() {
+        const firstGroupRow = ["A", "B", "C", "D"]
+            .map(name => this.worldCup.getGroupByName(name))
+            .map(group =>
+                <div class="col-lg-3">
+                    <Group group={group} />
+                </div>
+            );
+
+        const secondGroupRow = ["E", "F", "G", "H"]
+            .map(name => this.worldCup.getGroupByName(name))
+            .map(group =>
+                <div class="col-lg-3">
+                    <Group group={group} />
+                </div>
+            );
+
+        return (
+            <div>
+                <TeamEditor
+                    teams={teamsJson}
+                    handleChange={this.handleChange} />
+
+                <div class="row">{firstGroupRow}</div>
+                <div class="row">{secondGroupRow}</div>
+
+                <Matches
+                    name="Round of 16"
+                    matches={this.worldCup.getRoundOf16()} /><br />
+                <Matches
+                    name="Quarter Finals"
+                    matches={this.worldCup.getQuarterFinals()} /><br />
+                <Matches
+                    name="Semi Finals"
+                    matches={this.worldCup.getSemiFinals()} /><br />
+                <h3>Final</h3>
+                <Match match={this.worldCup.getFinal()} />
             </div>
-            
-            <div class="row">
-                {
-                    ["E", "F", "G", "H"]
-                        .map(name => worldCup.getGroupByName(name))
-                        .map(group =>
-                            <div class="col-sm-3">
-                                <Group group={group} />
-                            </div>
-                        )
-                }
-            </div>
-
-            <Matches name="Round of 16" matches={ worldCup.getRoundOf16() } /><br />
-            <Matches name="Quarter Finals" matches={ worldCup.getQuarterFinals() } /><br />
-            <Matches name="Semi Finals" matches={ worldCup.getSemiFinals() } /><br />
-            <h3>Final</h3>
-            <Match match={ worldCup.getFinal() } />
-        </div>
-    );
+        );
+    }
 }
 
 function Group(props) {
@@ -124,6 +148,6 @@ function Matches(props) {
 }
 
 ReactDOM.render(
-    <WorldCup seed="testing" />,
+    <WorldCupDisplay seed="testing" />,
     document.getElementById("root")
 );
