@@ -19,8 +19,6 @@ class WorldCupDisplay extends React.Component {
     }
 
     handleChange(state) {
-        console.log("HERE");
-
         this.setState(prevState => {
             prevState.teams = state.teams;
 
