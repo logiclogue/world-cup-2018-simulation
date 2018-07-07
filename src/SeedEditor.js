@@ -12,10 +12,12 @@ class SeedEditor extends React.Component {
     }
 
     handleChange(event) {
-        this.setState(prevState => {
-            prevState.seed = event.target.value;
+        const seed = event.target.value;
 
-            console.log(prevState.seed);
+        this.setState(prevState => {
+            prevState.seed = seed;
+
+            console.log(seed);
 
             this.props.handleChange(prevState.seed);
 
