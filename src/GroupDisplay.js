@@ -5,7 +5,7 @@ function GroupDisplay(props) {
     const group = props.group;
 
     return (
-        <div class="table">
+        <div className="table">
             <Table table={group.table()} />
             <MatchList matches={group.matches().value} />
         </div>

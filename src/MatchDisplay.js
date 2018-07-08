@@ -8,7 +8,7 @@ function MatchDisplay({ match }) {
     const goals = homeGoals + " - " + awayGoals;
 
     return (
-        <table class="table">
+        <table className="table">
             <tbody style={{ width: "100%" }}>
                 <td style={{ width: "40%", textAlign: "right" }}>{homeName} </td>
                 <td style={{ width: "20%", textAlign: "center" }}>{goals}</td>

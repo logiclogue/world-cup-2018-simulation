@@ -14,12 +14,14 @@ class WorldCupDisplay extends React.Component {
         this.teams = props.teams || teamsJson;
         this.seed = props.seed || "testing";
 
-        this.worldCup = new Sim(this.teams, this.seed.toSeed());
-
         this.state = {
             teams: this.teams,
             seed: this.seed
         };
+
+        this.worldCup = new Sim(this.teams, this.seed.toSeed());
+
+        this.state.worldCup = this.worldCup;
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSeedChange = this.handleSeedChange.bind(this);
@@ -29,6 +31,8 @@ class WorldCupDisplay extends React.Component {
         this.setState(prevState => {
             prevState.teams = state.teams;
             prevState.seed = this.seed;
+
+            prevState.worldCup = new Sim(state.teams, this.seed.toSeed());
 
             return prevState;
         });
@@ -40,9 +44,9 @@ class WorldCupDisplay extends React.Component {
 
     groupsToJsx(names) {
         return names
-            .map(name => [name, this.worldCup.getGroupByName(name)])
+            .map(name => [name, this.state.worldCup.getGroupByName(name)])
             .map(([name, group]) =>
-                <div class="row">
+                <div className="row">
                     <h3>Group {name}</h3>
                     <GroupDisplay group={group} />
                 </div>
@@ -53,7 +57,7 @@ class WorldCupDisplay extends React.Component {
         const groups = this.groupsToJsx(["A", "B", "C", "D", "E", "F", "G", "H"]);
 
         return (
-            <div class="container">
+            <div className="container">
                 <SeedEditor
                     handleChange={this.handleSeedChange}
                     seed={this.state.seed} />
@@ -65,15 +69,15 @@ class WorldCupDisplay extends React.Component {
 
                 <MatchList
                     name="Round of 16"
-                    matches={this.worldCup.getRoundOf16()} /><br />
+                    matches={this.state.worldCup.getRoundOf16()} /><br />
                 <MatchList
                     name="Quarter Finals"
-                    matches={this.worldCup.getQuarterFinals()} /><br />
+                    matches={this.state.worldCup.getQuarterFinals()} /><br />
                 <MatchList
                     name="Semi Finals"
-                    matches={this.worldCup.getSemiFinals()} /><br />
+                    matches={this.state.worldCup.getSemiFinals()} /><br />
                 <h3>Final</h3>
-                <MatchDisplay match={this.worldCup.getFinal()} />
+                <MatchDisplay match={this.state.worldCup.getFinal()} />
             </div>
         );
     }
