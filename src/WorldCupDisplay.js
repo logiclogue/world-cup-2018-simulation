@@ -50,8 +50,6 @@ class WorldCupDisplay extends React.Component {
     }
 
     render() {
-        //const firstGroupRow = this.groupsToJsx(["A", "B", "C", "D"]);
-        //const secondGroupRow = this.groupsToJsx(["E", "F", "G", "H"]);
         const groups = this.groupsToJsx(["A", "B", "C", "D", "E", "F", "G", "H"]);
 
         return (
