@@ -38,25 +38,24 @@ class WorldCupDisplay extends React.Component {
         this.seed = seed;
     }
 
-    render() {
-        const firstGroupRow = ["A", "B", "C", "D"]
-            .map(name => this.worldCup.getGroupByName(name))
-            .map(group =>
-                <div class="col-lg-3">
+    groupsToJsx(names) {
+        return names
+            .map(name => [name, this.worldCup.getGroupByName(name)])
+            .map(([name, group]) =>
+                <div class="row">
+                    <h3>Group {name}</h3>
                     <GroupDisplay group={group} />
                 </div>
             );
+    }
 
-        const secondGroupRow = ["E", "F", "G", "H"]
-            .map(name => this.worldCup.getGroupByName(name))
-            .map(group =>
-                <div class="col-lg-3">
-                    <GroupDisplay group={group} />
-                </div>
-            );
+    render() {
+        //const firstGroupRow = this.groupsToJsx(["A", "B", "C", "D"]);
+        //const secondGroupRow = this.groupsToJsx(["E", "F", "G", "H"]);
+        const groups = this.groupsToJsx(["A", "B", "C", "D", "E", "F", "G", "H"]);
 
         return (
-            <div>
+            <div class="container">
                 <SeedEditor
                     handleChange={this.handleSeedChange}
                     seed={this.state.seed} />
@@ -64,8 +63,7 @@ class WorldCupDisplay extends React.Component {
                     teams={teamsJson}
                     handleChange={this.handleChange} />
 
-                <div class="row">{firstGroupRow}</div>
-                <div class="row">{secondGroupRow}</div>
+                {groups}
 
                 <MatchList
                     name="Round of 16"
