@@ -17,8 +17,6 @@ class SeedEditor extends React.Component {
         this.setState(prevState => {
             prevState.seed = seed;
 
-            console.log(seed);
-
             this.props.handleChange(prevState.seed);
 
             return prevState;
