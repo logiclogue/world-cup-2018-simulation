@@ -28,6 +28,8 @@ class TeamEditor extends React.Component {
                 return team;
             });
 
+            this.handleChange(state.teams);
+
             return state;
         });
     }
@@ -44,6 +46,8 @@ class TeamEditor extends React.Component {
                 return team;
             });
 
+            this.handleChange(state.teams);
+
             return state;
         });
     }
@@ -59,6 +63,8 @@ class TeamEditor extends React.Component {
 
                 return team;
             });
+
+            this.handleChange(state.teams);
 
             return state;
         });
@@ -80,15 +86,11 @@ class TeamEditor extends React.Component {
         );
 
         return (
-            <form onSubmit={this.handleSubmit}>
-                <table>
-                    <tbody>
-                        {teamRows}
-                    </tbody>
-                </table>
-
-                <input type="submit" value="Simulate" />
-            </form>
+            <table>
+                <tbody>
+                    {teamRows}
+                </tbody>
+            </table>
         );
     }
 }

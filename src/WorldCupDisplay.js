@@ -24,22 +24,32 @@ class WorldCupDisplay extends React.Component {
         this.state.worldCup = this.worldCup;
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleTeamsChange = this.handleTeamsChange.bind(this);
         this.handleSeedChange = this.handleSeedChange.bind(this);
     }
 
-    handleChange(state) {
-        this.setState(prevState => {
-            prevState.teams = state.teams;
-            prevState.seed = this.seed;
-
-            prevState.worldCup = new Sim(state.teams, this.seed.toSeed());
-
-            return prevState;
-        });
+    handleTeamsChange(teams) {
+        this.teams = teams;
     }
 
     handleSeedChange(seed) {
         this.seed = seed;
+    }
+
+    handleChange(event) {
+        event.preventDefault();
+
+        const teams = this.teams;
+        const seed = this.seed;
+
+        this.setState(prevState => {
+            prevState.teams = teams;
+            prevState.seed = seed;
+
+            prevState.worldCup = new Sim(teams, seed.toSeed());
+
+            return prevState;
+        });
     }
 
     groupsToJsx(names) {
@@ -58,12 +68,16 @@ class WorldCupDisplay extends React.Component {
 
         return (
             <div className="container">
-                <SeedEditor
-                    handleChange={this.handleSeedChange}
-                    seed={this.state.seed} />
-                <TeamEditor
-                    teams={teamsJson}
-                    handleChange={this.handleChange} />
+                <form onSubmit={this.handleChange}>
+                    <SeedEditor
+                        handleChange={this.handleSeedChange}
+                        seed={this.state.seed} />
+                    <TeamEditor
+                        teams={teamsJson}
+                        handleChange={this.handleTeamsChange} />
+
+                    <input type="submit" value="Simulate" />
+                </form>
 
                 {groups}
 
