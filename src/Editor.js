@@ -39,10 +39,10 @@ class Editor extends React.Component {
             <form onSubmit={e => this.handleSubmit(e)}>
                 <SeedEditor
                     seed={this.state.seed}
-                    handleChange={this.handleSeedChange} />
+                    handleChange={e => this.handleSeedChange(e)} />
                 <TeamEditor
                     teams={this.state.teams}
-                    handleChange={this.handleTeamsChange} />
+                    handleChange={e => this.handleTeamsChange(e)} />
 
                 <SimulateButton />
             </form>
