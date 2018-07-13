@@ -7,7 +7,7 @@ const Container = ({ children }) => (
 );
 
 const Row = ({ children }) => (
-    <div className="row">
+    <div className="row mt-5">
         {children}
     </div>
 );

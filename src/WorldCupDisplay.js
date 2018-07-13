@@ -97,7 +97,7 @@ const Groups = ({ groupNames, worldCup }) => (
     groupNames
         .map(name => [name, worldCup.getGroupByName(name)])
         .map(([name, group]) => (
-            <Section title={"Group" + name}>
+            <Section title={"Group " + name}>
                 <GroupDisplay group={group} />
             </Section>
         ))
