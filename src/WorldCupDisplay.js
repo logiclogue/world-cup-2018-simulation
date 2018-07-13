@@ -14,27 +14,15 @@ class WorldCupDisplay extends React.Component {
         this.seed = props.seed;
 
         this.state = {
-            hasSimulated: false,
             worldCup: new Sim(this.teams, this.seed.toSeed())
         };
 
         this.worldCup = this.state.worldCup;
     }
 
-    handleChange({ teams, seed }) {
-        this.setState(prevState => {
-            prevState.hasSimulated = true;
-            prevState.worldCup = new Sim(teams, seed.toSeed());
-
-            return prevState;
-        })
-    }
-
     render() {
         return (
-            <Container>
-                <Editor onChange={state => this.handleChange(state)} />
-
+            <div>
                 <Groups
                     groupNames={["A", "B", "C", "D", "E", "F", "G", "H"]}
                     worldCup={this.state.worldCup} />
@@ -56,7 +44,7 @@ class WorldCupDisplay extends React.Component {
                 <Section title="Final">
                     <MatchDisplay match={this.state.worldCup.getFinal()} />
                 </Section>
-            </Container>
+            </div>
         );
     }
 }

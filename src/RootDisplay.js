@@ -9,14 +9,16 @@ class RootDisplay extends React.Component {
 
         this.state = {
             seed: props.seed,
-            teams: props.teams
+            teams: props.teams,
+            isEditing: true
         }
     }
 
-    handleChange(state) {
+    handleEditSubmit(state) {
         this.setState(prevState => {
             prevState.seed = state.seed;
             prevState.teams = state.teams;
+            prevState.isEditing = false;
 
             return prevState;
         });
@@ -25,10 +27,26 @@ class RootDisplay extends React.Component {
     render() {
         return (
             <Container>
-                <Editor onChange={state => this.handleChange(state)} />
+                <Switchable
+                    seed={this.state.seed}
+                    teams={this.state.teams}
+                    onEditSubmit={state => this.handleEditSubmit(state)}
+                    isEditing={this.state.isEditing} />
             </Container>
         );
     }
 }
+
+function Switchable({ seed, teams, onEditSubmit, isEditing }) {
+    if (isEditing) {
+        return (
+            <Editor seed={seed} teams={teams} onChange={onEditSubmit} />
+        );
+    }
+
+    return (
+        <WorldCupDisplay seed={seed} teams={teams} />
+    );
+};
 
 export default RootDisplay;

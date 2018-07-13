@@ -36,7 +36,7 @@ class Editor extends React.Component {
 
     render() {
         return (
-            <form onSubmit={() => this.handleSubmit()}>
+            <form onSubmit={e => this.handleSubmit(e)}>
                 <SeedEditor
                     seed={this.state.seed}
                     handleChange={this.handleSeedChange} />
