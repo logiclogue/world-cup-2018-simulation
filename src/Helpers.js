@@ -12,7 +12,7 @@ const Row = ({ children }) => (
     </div>
 );
 
-const Section =({ title, children }) => (
+const Section = ({ title, children }) => (
     <Row>
         <h3>{title}</h3>
         {children}

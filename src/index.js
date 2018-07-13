@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-import WorldCupDisplay from "./WorldCupDisplay";
+import RootDisplay from "./RootDisplay";
+import teamsJson from "./teams.json";
 
 ReactDOM.render(
-    <WorldCupDisplay seed="testing" />,
+    <RootDisplay seed="testing" teams={teamsJson} />,
     document.getElementById("root")
 );

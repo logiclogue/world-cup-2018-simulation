@@ -1,71 +1,39 @@
 import React from "react";
-import teamsJson from "./teams.json";
 import Sim from "./WorldCup.js";
 import GroupDisplay from "./GroupDisplay";
-import SeedEditor from "./SeedEditor";
-import TeamEditor from "./TeamEditor";
 import MatchList from "./MatchList";
 import MatchDisplay from "./MatchDisplay";
+import Editor from "./Editor";
 import { Container, Row, Section } from "./Helpers";
 
 class WorldCupDisplay extends React.Component {
     constructor(props) {
         super(props);
 
-        this.teams = props.teams || teamsJson;
-        this.seed = props.seed || "testing";
+        this.teams = props.teams;
+        this.seed = props.seed;
 
         this.state = {
-            teams: this.teams,
-            seed: this.seed
+            hasSimulated: false,
+            worldCup: new Sim(this.teams, this.seed.toSeed())
         };
 
-        this.worldCup = new Sim(this.teams, this.seed.toSeed());
-
-        this.state.worldCup = this.worldCup;
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleTeamsChange = this.handleTeamsChange.bind(this);
-        this.handleSeedChange = this.handleSeedChange.bind(this);
+        this.worldCup = this.state.worldCup;
     }
 
-    handleTeamsChange(teams) {
-        this.teams = teams;
-    }
-
-    handleSeedChange(seed) {
-        this.seed = seed;
-    }
-
-    handleChange(event) {
-        event.preventDefault();
-
-        const teams = this.teams;
-        const seed = this.seed;
-
+    handleChange({ teams, seed }) {
         this.setState(prevState => {
-            prevState.teams = teams;
-            prevState.seed = seed;
-
+            prevState.hasSimulated = true;
             prevState.worldCup = new Sim(teams, seed.toSeed());
 
             return prevState;
-        });
+        })
     }
 
     render() {
         return (
             <Container>
-                <form onSubmit={this.handleChange}>
-                    <SeedEditor
-                        handleChange={this.handleSeedChange}
-                        seed={this.state.seed} />
-                    <TeamEditor
-                        teams={teamsJson}
-                        handleChange={this.handleTeamsChange} />
-
-                    <input type="submit" value="Simulate" />
-                </form>
+                <Editor onChange={state => this.handleChange(state)} />
 
                 <Groups
                     groupNames={["A", "B", "C", "D", "E", "F", "G", "H"]}
