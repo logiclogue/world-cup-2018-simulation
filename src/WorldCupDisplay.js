@@ -6,6 +6,7 @@ import SeedEditor from "./SeedEditor";
 import TeamEditor from "./TeamEditor";
 import MatchList from "./MatchList";
 import MatchDisplay from "./MatchDisplay";
+import { Container, Row, Section } from "./Helpers";
 
 class WorldCupDisplay extends React.Component {
     constructor(props) {
@@ -52,22 +53,9 @@ class WorldCupDisplay extends React.Component {
         });
     }
 
-    groupsToJsx(names) {
-        return names
-            .map(name => [name, this.state.worldCup.getGroupByName(name)])
-            .map(([name, group]) =>
-                <div className="row">
-                    <h3>Group {name}</h3>
-                    <GroupDisplay group={group} />
-                </div>
-            );
-    }
-
     render() {
-        const groups = this.groupsToJsx(["A", "B", "C", "D", "E", "F", "G", "H"]);
-
         return (
-            <div className="container">
+            <Container>
                 <form onSubmit={this.handleChange}>
                     <SeedEditor
                         handleChange={this.handleSeedChange}
@@ -79,7 +67,9 @@ class WorldCupDisplay extends React.Component {
                     <input type="submit" value="Simulate" />
                 </form>
 
-                {groups}
+                <Groups
+                    groupNames={["A", "B", "C", "D", "E", "F", "G", "H"]}
+                    worldCup={this.state.worldCup} />
 
                 <MatchList
                     name="Round of 16"
@@ -92,9 +82,19 @@ class WorldCupDisplay extends React.Component {
                     matches={this.state.worldCup.getSemiFinals()} /><br />
                 <h3>Final</h3>
                 <MatchDisplay match={this.state.worldCup.getFinal()} />
-            </div>
+            </Container>
         );
     }
 }
+
+const Groups = ({ groupNames, worldCup }) => (
+    groupNames
+        .map(name => [name, worldCup.getGroupByName(name)])
+        .map(([name, group]) => (
+            <Section title={"Group" + name}>
+                <GroupDisplay group={group} />
+            </Section>
+        ))
+);
 
 export default WorldCupDisplay;
