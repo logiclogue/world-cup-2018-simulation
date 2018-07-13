@@ -24,6 +24,14 @@ class RootDisplay extends React.Component {
         });
     }
 
+    handleEditClick() {
+        this.setState(prevState => {
+            prevState.isEditing = true;
+
+            return prevState;
+        });
+    }
+
     render() {
         return (
             <Container>
@@ -31,13 +39,14 @@ class RootDisplay extends React.Component {
                     seed={this.state.seed}
                     teams={this.state.teams}
                     onEditSubmit={state => this.handleEditSubmit(state)}
+                    onEditClick={() => this.handleEditClick()}
                     isEditing={this.state.isEditing} />
             </Container>
         );
     }
 }
 
-function Switchable({ seed, teams, onEditSubmit, isEditing }) {
+function Switchable({ seed, teams, onEditSubmit, onEditClick, isEditing }) {
     if (isEditing) {
         return (
             <Editor seed={seed} teams={teams} onChange={onEditSubmit} />
@@ -45,8 +54,15 @@ function Switchable({ seed, teams, onEditSubmit, isEditing }) {
     }
 
     return (
-        <WorldCupDisplay seed={seed} teams={teams} />
+        <div>
+            <EditButton onClick={onEditClick} />
+            <WorldCupDisplay seed={seed} teams={teams} onEdit />
+        </div>
     );
 };
+
+const EditButton = ({ onClick }) => (
+    <button onClick={onClick}>Edit</button>
+);
 
 export default RootDisplay;
