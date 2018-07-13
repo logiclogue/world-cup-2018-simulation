@@ -15,22 +15,24 @@ class SeedEditor extends React.Component {
     handleChange(event) {
         const seed = event.target.value;
 
+        this.props.handleChange(seed);
+
         this.setState(prevState => {
             prevState.seed = seed;
-
-            this.props.handleChange(prevState.seed);
 
             return prevState;
         });
     }
 
     handleRandom(event) {
-        const random = event.target.value;
+        event.preventDefault();
+
+        const seed = Math.random() + "";
+
+        this.props.handleChange(seed);
 
         this.setState(prevState => {
-            prevState.seed = Math.random() + "";
-
-            this.props.handleChange(prevState.seed);
+            prevState.seed = seed;
 
             return prevState;
         });
