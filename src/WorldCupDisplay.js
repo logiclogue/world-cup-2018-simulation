@@ -71,17 +71,23 @@ class WorldCupDisplay extends React.Component {
                     groupNames={["A", "B", "C", "D", "E", "F", "G", "H"]}
                     worldCup={this.state.worldCup} />
 
-                <MatchList
-                    name="Round of 16"
-                    matches={this.state.worldCup.getRoundOf16()} /><br />
-                <MatchList
-                    name="Quarter Finals"
-                    matches={this.state.worldCup.getQuarterFinals()} /><br />
-                <MatchList
-                    name="Semi Finals"
-                    matches={this.state.worldCup.getSemiFinals()} /><br />
-                <h3>Final</h3>
-                <MatchDisplay match={this.state.worldCup.getFinal()} />
+                <Section title="Round of 16">
+                    <MatchList matches={this.state.worldCup.getRoundOf16()} />
+                </Section>
+
+                <Section title="Quarter Finals">
+                    <MatchList
+                        matches={this.state.worldCup.getQuarterFinals()} />
+                </Section>
+
+                <Section title="Semi Finals">
+                    <MatchList
+                        matches={this.state.worldCup.getSemiFinals()} />
+                </Section>
+
+                <Section title="Final">
+                    <MatchDisplay match={this.state.worldCup.getFinal()} />
+                </Section>
             </Container>
         );
     }

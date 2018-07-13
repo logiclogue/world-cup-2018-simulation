@@ -1,13 +1,8 @@
 import MatchDisplay from "./MatchDisplay";
 import React from "react";
 
-function MatchList({ name, matches }) {
-    return (
-        <div>
-            <h3>{name}</h3>
-            <div>{matches.map(match => <MatchDisplay match={match} />)}</div>
-        </div>
-    );
-}
+const MatchList = ({ matches }) => (
+    matches.map(match => <MatchDisplay match={match} />)
+);
 
 export default MatchList;
