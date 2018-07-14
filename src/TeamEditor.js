@@ -86,38 +86,42 @@ class TeamEditor extends React.Component {
         );
 
         return (
-            <table>
-                <tbody>
-                    {teamRows}
-                </tbody>
-            </table>
+            <div className="mt-5">
+                {teamRows}
+            </div>
         );
     }
 }
 
-const TeamRow = ({ action, team, id }) =>
-        <tr>
-            <td>
+const TeamRow = ({ action, team, id }) => (
+        <div className="form-row">
+            <div className="col-md-4">
                 Name:
-                <input
+                <Field
                     onChange={e => action.handleNameChange(e, id)}
-                    type="text"
                     value={team.name} />
-            </td>
-            <td>
+            </div>
+            <div className="col-md-4">
                 Rating:
-                <input
+                <Field
                     onChange={e => action.handleRatingChange(e, id)}
-                    type="number"
                     value={team.rating} />
-            </td>
-            <td>
+            </div>
+            <div className="col-md-4 mb-3">
                 Group:
-                <input
+                <Field
                     onChange={e => action.handleGroupChange(e, id)}
-                    type="text"
                     value={team.group} />
-            </td>
-        </tr>
+            </div>
+        </div>
+);
+
+const Field = ({ onChange, value }) => (
+    <input
+        className="form-control"
+        onChange={onChange}
+        type="text"
+        value={value} />
+);
 
 export default TeamEditor;
