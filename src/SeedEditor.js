@@ -40,19 +40,37 @@ class SeedEditor extends React.Component {
 
     render() {
         return (
-            <div>
-                <input
-                    type="text"
-                    onChange={this.handleChange}
-                    value={this.state.seed} />
+            <div className="form-group mt-5">
+                <div className="form-row">
+                    <SeedField
+                        onChange={this.handleChange}
+                        value={this.state.seed} />
 
-                <input
-                    type="submit"
-                    onClick={this.handleRandom}
-                    value="Random" />
+                    <RandomiseButton onClick={this.handleRandom} />
+                </div>
             </div>
         );
     }
 }
+
+const SeedField = ({ onChange, value }) => (
+    <div className="col-md-10 mb-2">
+        <input
+            className="form-control"
+            type="text"
+            onChange={onChange}
+            value={value} />
+    </div>
+);
+
+const RandomiseButton = ({ onClick }) => (
+    <div className="col-md-2">
+        <input
+            className="btn btn-primary btn-block"
+            type="submit"
+            onClick={onClick}
+            value="Random" />
+    </div>
+);
 
 export default SeedEditor;
