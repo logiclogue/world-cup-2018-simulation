@@ -16,7 +16,7 @@ function Table(props) {
     const table = props.table;
 
     const tableBody = table.map((record, i) =>
-        <Record record={record} position={i + 1} />)
+        <Record key={i} record={record} position={i + 1} />)
 
     return (
         <table>
