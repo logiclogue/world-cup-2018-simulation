@@ -51,7 +51,10 @@ class Editor extends React.Component {
 }
 
 const SimulateButton = () => (
-    <input type="submit" value="Simulate" />
+    <input
+        className="btn btn-primary col-md-12 my-5"
+        type="submit"
+        value="Simulate" />
 );
 
 export default Editor;

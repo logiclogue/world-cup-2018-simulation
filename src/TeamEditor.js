@@ -103,7 +103,7 @@ const TeamRow = ({ action, team, id }) => (
             </div>
             <div className="col-md-4">
                 Rating:
-                <Field
+                <RatingField
                     onChange={e => action.handleRatingChange(e, id)}
                     value={team.rating} />
             </div>
@@ -116,12 +116,22 @@ const TeamRow = ({ action, team, id }) => (
         </div>
 );
 
+const RatingField = ({ onChange, value }) => (
+    <input
+        className="form-control"
+        onChange={onChange}
+        type="number"
+        value={value}
+        required />
+);
+
 const Field = ({ onChange, value }) => (
     <input
         className="form-control"
         onChange={onChange}
         type="text"
-        value={value} />
+        value={value}
+        required />
 );
 
 export default TeamEditor;
