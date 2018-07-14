@@ -63,7 +63,7 @@ function Switchable({ seed, teams, onEditSubmit, onEditClick, isEditing }) {
 
 const EditButton = ({ onClick }) => (
     <button
-        className="col-md-12 btn btn-primary"
+        className="col-md-2 btn btn-primary"
         onClick={onClick}>Edit</button>
 );
 
