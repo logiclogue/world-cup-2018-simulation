@@ -5,7 +5,19 @@ function MatchDisplay({ match }) {
     const awayName = match.away.name;
     const homeGoals = match.occurrences.goals.home;
     const awayGoals = match.occurrences.goals.away;
-    const goals = homeGoals + " - " + awayGoals;
+    let goals = homeGoals + " - " + awayGoals;
+
+    if (match.isExtraTime) {
+        goals += " aet";
+    }
+
+    if (match.isPenaltyShootout) {
+        goals += " ("
+            + match.penaltyShootout.goals.home
+            + " - "
+            + match.penaltyShootout.goals.away
+            + ")";
+    }
 
     return (
         <table className="table">
