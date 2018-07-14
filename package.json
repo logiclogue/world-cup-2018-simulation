@@ -21,6 +21,7 @@
     "chai": "^4.1.2",
     "football-score-sim": "git+https://github.com/logiclogue/football-score-sim.git",
     "knockout-tournament": "^1.0.1",
+    "md5": "^2.2.1",
     "mocha": "^5.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

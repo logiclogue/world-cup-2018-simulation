@@ -1,4 +1,5 @@
 import React from "react";
+import md5 from "md5";
 
 class SeedEditor extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class SeedEditor extends React.Component {
     handleRandom(event) {
         event.preventDefault();
 
-        const seed = Math.random() + "";
+        const seed = md5(Date.now() + "");
 
         this.props.handleChange(seed);
 
