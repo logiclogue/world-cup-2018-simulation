@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "start": "react-scripts start"
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "bootstrap": "^4.1.2",
     "chai": "^4.1.2",
     "football-score-sim": "git+https://github.com/logiclogue/football-score-sim.git",
     "html-webpack-plugin": "^3.2.0",
