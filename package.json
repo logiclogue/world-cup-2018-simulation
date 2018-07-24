@@ -30,6 +30,7 @@
     "knockout-tournament": "^1.0.1",
     "md5": "^2.2.1",
     "mocha": "^5.2.0",
+    "purs-loader": "^3.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "^1.1.4",
